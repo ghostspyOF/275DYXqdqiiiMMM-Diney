@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -435,6 +436,12 @@
             <p>Contagens dos Produtos: 200 até 299</p>
             <div class="carousel-track" id="carousel3"></div>
         </section>
+        
+        <section class="carousel-container">
+            <h2 class="carousel-title">Nossas Variedades</h2>
+            <p>Contagens dos Produtos: 300 até 399</p>
+            <div class="carousel-track" id="carousel4"></div>
+        </section>
     </div>
 
     <div class="backup-controls">
@@ -509,18 +516,20 @@
             `;
         }
 
-        function renderizarTodosCarrosseis() {
+   function renderizarTodosCarrosseis() {
             const track1 = document.getElementById('carousel1');
             const track2 = document.getElementById('carousel2');
             const track3 = document.getElementById('carousel3');
+            const track4 = document.getElementById('carousel4'); // <-- ADICIONADO
 
-            track1.innerHTML = ""; track2.innerHTML = ""; track3.innerHTML = "";
+            track1.innerHTML = ""; track2.innerHTML = ""; track3.innerHTML = ""; track4.innerHTML = ""; // <-- ADICIONADO track4
 
             listaProdutos.forEach(p => {
                 const html = createCardHTML(p.id, p.nome, p.preco, p.img);
                 if (p.id >= 2000 && p.id <= 2999) track1.innerHTML += html;
                 else if (p.id >= 100 && p.id <= 199) track2.innerHTML += html;
                 else if (p.id >= 200 && p.id <= 299) track3.innerHTML += html;
+                else if (p.id >= 300 && p.id <= 399) track4.innerHTML += html; // <-- ADICIONADO
             });
         }
 
